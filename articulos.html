@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<link href="Style/Style_medicina.css" rel="stylesheet" type="text/css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<header id="navbar">
+        <div class="logo">
+          <img src="Imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav>
+            <ul class="menu">
+				<li> <a href="index.html">Inicio</a> </li>
+                <li><a href="index.html#servicio">Servicio</a></li>
+                <li><a href="index.html#ubicacion">Ubicación</a></li>
+				<li><a href="index.html#contacto">Contacto</a></li>
+
+            </ul>
+            <div class="hamburguesa" onclick="toggleMenu()">☰</div>
+        </nav>
+	
+	
+	
+</header>
+
+<body>
+
+<section>
+	
+  <div class="sidebar">
+    <h2>Categorías</h2>
+    <ul class="accordion">
+        <!-- Mascotas -->
+        <li>
+            <button class="accordion-btn" onclick="togglePanel(this)">Catálogo<span class="arrow">&#9660;</span></button>
+            <ul class="panel">
+                <li><a href="#" onclick="mostrarProductos('limpieza')">Limpieza y Aseo</a></li>
+                <li><a href="#" onclick="mostrarProductos('cama')">Cama</a></li>
+            </ul>
+        </li>
+
+     
+    </ul>
+
+    <!-- Contenedor de productos solo para 'Perro' -->
+    <div id="productos-perro" class="productos-relacionados" style="display: none;"></div>
+</div>
+    
+	 <!-- ========== HEADER ========== -->
+    <header> 
+    <div class="nav container">
+        <h2>Tienda</h2>
+        <i class='bx bx-shopping-bag' id="cart-icon"></i> <!-- Icono para abrir el carrito -->
+        
+        <!-- ========== Carrito ========== -->
+        <div class="cart" id="cart">
+            <span class="close" id="close-cart">&times;</span> <!-- Botón de cierre -->
+            
+            <h2 class="cart-title">Tu Carrito</h2>
+            
+            
+            <!-- ========== Contenido del Carrito ========== -->
+
+<!-- Total -->
+<div class="total">
+    <div class="total-title">Total</div>
+    <div class="total-price">$0</div> <!-- Comienza en $0 -->
+</div>
+
+<!-- Botón de compra -->
+<button type="button" class="btn-buy" onclick="window.location.href='checkout.html'">Compra Ahora</button>
+    </div> 
+</div>
+</header>
+
+    <!-- ========== SECCIÓN TIENDA ========== -->
+
+    <section class="shop-container">
+        <h2 class="section-title">Nuestros Productos</h2>
+
+        <div class="shop-content">
+            <!-- Producto 1 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/Bañito.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Sophresh Leak Guard Tapetes Ultra Absorbentes para Perro, 100 Piezas</h2>
+                <span class="price">$750</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			<!-- Producto 2 -->
+			<div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/Bolsas.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Happy Doggy Bolsas Biodegradables Compostables para Desechos de Mascotas, 240 Piezas
+</h2>
+                <span class="price">$360</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			 <!-- Producto 3 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/Limpiador.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Happy Doggy Bolsas Biodegradables Compostables para Desechos de Mascotas, 120 Piezas</h2>
+                <span class="price">$150</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			 <!-- Producto 4 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/cama1.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Reddy Cama Rectangular Resistente con Bordes Elevados Color Verde Camuflaje para Perro, Grande</h2>
+                <span class="price">$3000</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			 <!-- Producto 5 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/cama2.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Reddy Cama Rectangular Resistente con Bordes Elevados Color Verde Camuflaje para Perro, X-Grande</h2>
+                <span class="price">$4000</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			
+			<!-- Producto 6 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/cama3.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">EveryYay Tapete Resistente Gris para Jaula o Transportadora para Perro, Mediano</h2>
+                <span class="price">$700</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+				
+            </div>
+			
+			<!-- Producto 7 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/premio1.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Whimzees Brushzees Premio Dental Vegetariano X-Chico para Perro, 48 Piezas</h2>
+                <span class="price">$410</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+				
+            </div>
+			
+			<!-- Producto 8 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/premio2.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Hill's Science Diet Jerky Premio Suave en Tiras para Perro Receta Pollo, 200 g</h2>
+                <span class="price">$715</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+				
+            </div>
+			
+			<!-- Producto 9 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/premio3.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">WholeHearted Culinary Cuts Premios Suaves tipo Jerky Receta Salmón para Perro, 454 g</h2>
+                <span class="price">$300</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+				
+            </div>
+			
+			<!-- Producto 10 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/Articulos/premio4.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Natural Gourmet Masticable de Patas de Pollo para Perro, 13 Piezas</h2>
+                <span class="price">$80</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+				
+            </div>
+		</div>
+			</section>
+		
+	</section>
+
+<script type="text/javascript" src="Js/scrip_articulo.js"></script>
+
+</body>
+</html>

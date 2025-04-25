@@ -1,0 +1,445 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 60px;
+}
+
+/* Estilos del header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #1e2f54;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+.logo img {
+    width: 30%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: #ffa300;
+}
+
+.hamburguesa {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+section {
+    padding: 70px 50px;
+    padding-top: auto;
+}
+
+.texto {
+  flex: 1;
+width: 70%;
+}
+
+.texto h1 {
+  font-size: 32px;
+  color: #1e2f54;
+  margin-bottom: 15px;
+}
+
+.texto p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.Veterinaria{
+	width: 10%;
+}
+
+/* Preguntas */
+
+#preguntas {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  margin: auto;
+  gap: 20px;
+}
+
+.texto {
+  font-size: 32px;
+  color: #1e2f54;
+  margin-bottom: 15px;
+}
+
+.imagen {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imagen img {
+  max-width: 100%;
+  height: auto;
+}
+/* Estilos base */
+.faq-item {
+  background-color: #eaf6ff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.faq-item:hover {
+  background-color: #d6efff;
+}
+
+.faq-item strong {
+  color: #154360;
+  font-size: 17px;
+  display: inline-block;
+}
+
+/* Flechita */
+.flecha {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+/* Gira cuando está activa */
+.faq-item.activa .flecha {
+  transform: rotate(180deg);
+}
+
+/* Contenedor de respuesta animada */
+.faq-respuesta {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 5px;
+}
+
+.faq-item.activa .faq-respuesta {
+  max-height: 200px; /* Ajusta si necesitas más espacio */
+  padding-top: 10px;
+}
+
+.consejos {
+  background: 
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.vacuna-info-extra h3 {
+  color: #1e2f54;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.vacuna-info-extra ul {
+  list-style-type: "✅ ";
+  padding-left: 20px;
+}
+
+.vacuna-info-extra li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Responsive nav */
+@media (max-width: 412px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 50px;
+        background-color: #1e2f54;
+        width: 200px;
+        padding: 10px;
+    }
+
+    .menu li {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .hamburguesa {
+        display: block;
+    }
+}
+
+/* Estilos del contenedor */
+.vacunas-container {
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.vacunas-container .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.vacunas-container .vacuna-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.vacunas-container .vacuna-card:hover {
+    transform: scale(1.02);
+}
+
+.vacunas-container .card-icon {
+    text-align: center;
+    padding: 1rem;
+}
+
+.vacunas-container .card-icon img {
+    max-width: 60px;
+}
+
+.vacunas-container .card-content {
+    padding: 1rem;
+}
+
+.vacunas-container .card-content h3 {
+    margin: 0.5rem 0;
+}
+
+.vacunas-container .card-buttons {
+    margin-top: 1rem;
+}
+
+.vacunas-container .card-buttons button {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.vacunas-container .card-buttons button:hover {
+    background-color: #1565c0;
+}
+
+.vacunas-container .precio-info {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: #1e2f54;
+}
+
+/* ============================= */
+/* Modal - Agendar Cita */
+/* ============================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    margin-bottom: 1rem;
+    color: #1e2f54;
+}
+
+.modal-content form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modal-content form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.modal-content form button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.modal-content form button:hover {
+    background-color: #1565c0;
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #888;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cerrar:hover {
+    color: #000;
+}
+
+/* Responsive: Ocultar imagen en pantallas pequeñas */
+@media (max-width: 768px) {
+    .columna-imagen {
+        display: none;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .cards-column {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #1e2f54;
+    width: 200px;
+    padding: 10px;
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .menu li {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .hamburguesa {
+    display: block;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+
+  .texto h1 {
+    font-size: 24px;
+  }
+
+  .texto p,
+  .formulario label,
+  .formulario input,
+  .formulario textarea,
+  .name,
+  .profession {
+    font-size: 16px;
+  }
+
+  .vet-container {
+    display: flex;
+    flex-direction: column;
+  }
+	
+	#preguntas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imagen {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .texto {
+    text-align: center;
+  }
+}
+}

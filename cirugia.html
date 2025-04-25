@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+	 <script type="text/javascript" src="Js/scrip_vacuna.js"></script>
+<link href="Style/Style_vacunas.css" rel="stylesheet" type="text/css">
+
+<header id="navbar">
+        <div class="logo">
+            <img src="Imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav>
+            <ul class="menu">
+				<li> <a href="index.html">Inicio</a> </li>
+                <li><a href="index.html#servicio">Servicio</a></li>
+                <li><a href="index.html#ubicacion">Ubicación</a></li>
+				<li><a href="index.html#contacto">Contacto</a></li>
+
+            </ul>
+            <div class="hamburguesa" onclick="toggleMenu()">☰</div>
+        </nav>
+</header>
+
+<body>
+	
+
+	<section id="vacunas">
+		
+		<div class="vacuna-info-extra">
+  <div class="vacuna-info-box">
+	  
+  <section id="preguntas">
+	  
+	  <div class="texto">
+       <h3>¿Por qué es importante el monitoreo de nuestras mascotas?</h3>
+  <p>
+    El monitoreo durante una cirugía es vital para garantizar la seguridad y bienestar de tu mascota. Permite a los veterinarios controlar funciones vitales como el ritmo cardíaco, la respiración y la temperatura, minimizando riesgos y reaccionando rápidamente ante cualquier cambio inesperado.
+  </p>
+		  
+	<div class="vacuna-info-box">
+  <h3 class="vacuna-titulo">Preguntas frecuentes</h3>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>¿Mi mascota debe estar en ayuno antes de la cirugía?</strong>
+    <p class="faq-respuesta">Sí, generalmente 8 a 12 horas antes.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>¿Cuánto tiempo dura la recuperación?</strong>
+    <p class="faq-respuesta"> Depende del tipo de cirugía, pero puede tomar desde días hasta semanas.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>¿Puedo estar presente durante la operación?</strong>
+    <p class="faq-respuesta">No, por motivos de esterilidad y seguridad.</p>
+  </div>
+</div>
+	  </div>
+	  
+	  <div class="imagen">
+               <div align="right">  <img src="Imagenes/Cirugia/Doctor.png" alt="Veterinaria"> </div>
+            </div>
+	  </section>
+</div>
+
+
+    
+        <!-- Contenedor de las tarjetas de vacunas -->
+  <div class="vacunas-container">
+    <div class="cards-grid">
+
+      <!-- Tarjeta: Rabia -->
+      <div class="vacuna-card">
+        <div class="card-icon">
+          <img src="Imagenes/Cirugia/Esterilizacion.png" alt="Inyección">
+        </div>
+        <div class="card-content">
+          <h3>Esterilización</h3>
+          <p>Cirugía común que previene camadas no deseadas y mejora la salud a largo plazo.</p>
+          <p class="precio-info" id="precio-rabia">$200 y $500 MXN</p>
+          <div class="card-buttons">
+            <button onclick="mostrarCita()">Agendar cita</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Moquillo -->
+      <div class="vacuna-card">
+        <div class="card-icon">
+          <img src="Imagenes/Cirugia/tumor.png" alt="Inyección">
+        </div>
+        <div class="card-content">
+          <h3>Remoción de tumores</h3>
+          <p>Se realiza para extraer masas o tumores sospechosos o dolorosos.</p>
+          <p class="precio-info" id="precio-moquillo">$3,000 y 10,000 MXN</p>
+          <div class="card-buttons">
+            <button onclick="mostrarCita()">Agendar cita</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Leptospirosis -->
+      <div class="vacuna-card">
+        <div class="card-icon">
+          <img src="Imagenes/Cirugia/Dental.png" alt="Inyección">
+        </div>
+        <div class="card-content">
+          <h3>Cirugía dental</h3>
+          <p>Intervenciones en dientes, encías o mandíbula para evitar infecciones o dolor.</p>
+          <p class="precio-info" id="precio-leptospirosis">$500 y $4,000 MXN</p>
+          <div class="card-buttons">
+            <button onclick="mostrarCita()">Agendar cita</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Parvovirus -->
+      <div class="vacuna-card">
+        <div class="card-icon">
+          <img src="Imagenes/Cirugia/hueso.png" alt="Inyección">
+        </div>
+        <div class="card-content">
+          <h3>Cirugías ortopédicas</h3>
+          <p>Reparación de huesos rotos o problemas articulares para mejorar la movilidad.</p>
+          <p class="precio-info" id="precio-parvovirus">$1500 y $4000 MXN</p>
+          <div class="card-buttons">
+            <button onclick="mostrarCita()">Agendar cita</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+     <!-- Modal para agendar cita -->
+<div id="modal-cita" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarCita()">&times;</span>
+    <h2>Agendar Cita</h2>
+    <form id="form-cita">
+      <label for="nombreMascota">Nombre de la mascota:</label>
+      <input type="text" id="nombreMascota" required>
+
+      <label for="nombreDueño">Tu nombre:</label>
+      <input type="text" id="nombreDueño" required>
+
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" required>
+
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" required>
+
+      <button type="submit">Agendar cita</button>
+    </form>
+  </div>
+</div>
+		
+		<div class="consejos">
+  <h3>Consejos Pre y Post Cirugía</h3>
+  <ul>
+    <li>Evita darle comida o agua a tu mascota la noche anterior.</li>
+    <li>Lleva a tu mascota con correa o transportadora.</li>
+    <li>Informa al veterinario sobre medicamentos actuales o alergias</li>
+	<li>Proporciónale un lugar tranquilo y limpio para su recuperación. </li>
+	  <li>No permitas que lama la herida; considera usar un collar isabelino </li>
+  </ul>
+</div>
+
+</section>
+ 
+	
+</body>
+</html>

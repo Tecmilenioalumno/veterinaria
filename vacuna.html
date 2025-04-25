@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+	 <script type="text/javascript" src="Js/scrip_vacuna.js"></script>
+<link href="Style/Style_vacunas.css" rel="stylesheet" type="text/css">
+
+<header id="navbar">
+        <div class="logo">
+            <img src="Imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav>
+            <ul class="menu">
+				<li> <a href="index.html">Inicio</a> </li>
+                <li><a href="index.html#servicio">Servicio</a></li>
+                <li><a href="index.html#ubicacion">Ubicación</a></li>
+				<li><a href="index.html#contacto">Contacto</a></li>
+
+            </ul>
+            <div class="hamburguesa" onclick="toggleMenu()">☰</div>
+        </nav>
+</header>
+
+<body>
+	
+
+	<section id="vacunas">
+		
+		<div class="vacuna-info-extra">
+  <div class="vacuna-info-box">
+	  
+  <section id="preguntas">
+	  
+	  <div class="texto">
+      <h3 class="vacuna-titulo">¿Por qué vacunar a tu mascota?</h3>
+      <p class="vacuna-descripcion">
+       La vacunación protege a tu perro o gato contra enfermedades peligrosas y contagiosas.
+       También ayuda a prevenir brotes y mantener la salud pública.
+     </p>
+		  
+	<div class="vacuna-info-box">
+  <h3 class="vacuna-titulo">Preguntas frecuentes</h3>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>¿Cuándo debo empezar a vacunar a mi mascota?</strong>
+    <p class="faq-respuesta">A partir de las 6 semanas de edad.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>¿Qué pasa si me atraso en una vacuna?</strong>
+    <p class="faq-respuesta">Es importante consultar al veterinario para un nuevo esquema.</p>
+  </div>
+  <div class="faq-item" onclick="toggleFAQ(this)">
+    <strong>¿Las vacunas causan efectos secundarios?</strong>
+    <p class="faq-respuesta">Puede haber síntomas leves como somnolencia o inflamación temporal.</p>
+  </div>
+</div>
+	  </div>
+	  
+	  <div class="imagen">
+               <div align="right">  <img src="Imagenes/vacuna/pregunta.png" alt="Veterinaria"> </div>
+            </div>
+	  </section>
+</div>
+
+
+    
+        <!-- Contenedor de las tarjetas de vacunas -->
+  <div class="vacunas-container">
+    <div class="cards-grid">
+
+      <!-- Tarjeta: Rabia -->
+      <div class="vacuna-card">
+        <div class="card-icon">
+          <img src="Imagenes/vacuna/Rabia.png" alt="Inyección">
+        </div>
+        <div class="card-content">
+          <h3>Vacuna contra la Rabia</h3>
+          <p>Protección esencial contra el virus de la rabia. Requiere revacunación anual.</p>
+          <p class="precio-info" id="precio-rabia">$300 MXN</p>
+          <div class="card-buttons">
+            <button onclick="mostrarCita()">Agendar cita</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Moquillo -->
+      <div class="vacuna-card">
+        <div class="card-icon">
+          <img src="Imagenes/vacuna/Moquillo.png" alt="Inyección">
+        </div>
+        <div class="card-content">
+          <h3>Vacuna contra el Moquillo</h3>
+          <p>Previene esta enfermedad viral altamente contagiosa en perros.</p>
+          <p class="precio-info" id="precio-moquillo">$280 MXN</p>
+          <div class="card-buttons">
+            <button onclick="mostrarCita()">Agendar cita</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Leptospirosis -->
+      <div class="vacuna-card">
+        <div class="card-icon">
+          <img src="Imagenes/vacuna/Leptospirosis.png" alt="Inyección">
+        </div>
+        <div class="card-content">
+          <h3>Vacuna contra la Leptospirosis</h3>
+          <p>Protege contra infecciones bacterianas transmitidas por la orina.</p>
+          <p class="precio-info" id="precio-leptospirosis">$320 MXN</p>
+          <div class="card-buttons">
+            <button onclick="mostrarCita()">Agendar cita</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta: Parvovirus -->
+      <div class="vacuna-card">
+        <div class="card-icon">
+          <img src="Imagenes/vacuna/Parvovirus.png" alt="Inyección">
+        </div>
+        <div class="card-content">
+          <h3>Vacuna contra el Parvovirus</h3>
+          <p>Protección contra esta enfermedad grave que afecta el tracto intestinal.</p>
+          <p class="precio-info" id="precio-parvovirus">$310 MXN</p>
+          <div class="card-buttons">
+            <button onclick="mostrarCita()">Agendar cita</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+     <!-- Modal para agendar cita -->
+<div id="modal-cita" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarCita()">&times;</span>
+    <h2>Agendar Cita</h2>
+    <form id="form-cita">
+      <label for="nombreMascota">Nombre de la mascota:</label>
+      <input type="text" id="nombreMascota" required>
+
+      <label for="nombreDueño">Tu nombre:</label>
+      <input type="text" id="nombreDueño" required>
+
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" required>
+
+      <label for="hora">Hora:</label>
+      <input type="time" id="hora" required>
+
+      <button type="submit">Agendar cita</button>
+    </form>
+  </div>
+</div>
+		
+		<div class="consejos">
+  <h3>Consejos antes y después de la vacunación</h3>
+  <ul>
+    <li>Evita bañar a tu mascota 3 días antes y después de la vacuna.</li>
+    <li>Lleva a tu mascota con correa o transportadora.</li>
+    <li>Observa si hay reacciones y consulta al veterinario si notas algo inusual.</li>
+  </ul>
+</div>
+
+</section>
+ 
+	
+</body>
+</html>

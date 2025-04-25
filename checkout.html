@@ -1,0 +1,68 @@
+<!-- checkout.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Finalizar Compra</title>
+   
+<link href="Style/checkout.css.css" rel="stylesheet" type="text/css"><script type="text/javascript" src="../Portafolio/JavaScrip/Scrip.js"></script>
+
+</head>
+<body>
+  <div class="checkout-container">
+	  
+	     <header id="navbar">
+        <div class="logo">
+            <img src="Imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicio">Servicio</a></li>
+                <li><a href="index.html#ubicacion">Ubicación</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburguesa" onclick="toggleMenu()">☰</div>
+        </nav>
+    </header>
+    
+    <!-- FORMULARIO DE PAGO -->
+    <div class="payment-form">
+      <h2>Datos de Pago</h2>
+      <form id="payment-form">
+        <input type="text" placeholder="Nombre del Propietario" required />
+        <input type="text" placeholder="Número de Tarjeta" required />
+        <select required>
+          <option disabled selected>Tipo de tarjeta</option>
+          <option>Visa</option>
+          <option>MasterCard</option>
+          <option>AMEX</option>
+        </select>
+        <div class="row">
+          <input type="text" placeholder="MM" required />
+          <input type="text" placeholder="AAAA" required />
+          <input type="text" placeholder="CVV" required />
+        </div>
+        <button type="submit">Realizar Compra</button>
+      </form>
+    </div>
+
+    <!-- RESUMEN DEL CARRITO -->
+    <div class="cart-summary">
+      <h2>Resumen del Carrito</h2>
+      <div class="cart-items">
+        <!-- Se llenará dinámicamente -->
+      </div>
+      <div class="total-checkout">
+        <span>Total:</span>
+        <span id="total-price-checkout">$0</span>
+      </div>
+    </div>
+  </div>
+
+  
+</body>
+</html>
+
+

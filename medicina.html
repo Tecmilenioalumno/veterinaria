@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<link href="Style/Style_medicina.css" rel="stylesheet" type="text/css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<header id="navbar">
+        <div class="logo">
+          <img src="Imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav>
+            <ul class="menu">
+				<li> <a href="index.html">Inicio</a> </li>
+                <li><a href="index.html#servicio">Servicio</a></li>
+                <li><a href="index.html#ubicacion">Ubicación</a></li>
+				<li><a href="index.html#contacto">Contacto</a></li>
+
+            </ul>
+            <div class="hamburguesa" onclick="toggleMenu()">☰</div>
+        </nav>
+	
+	
+	
+</header>
+
+<body>
+
+<section>
+	
+  <div class="sidebar">
+    <h2>Categorías</h2>
+    <ul class="accordion">
+        <!-- Mascotas -->
+        <li>
+            <button class="accordion-btn" onclick="togglePanel(this)">Mascotas <span class="arrow">&#9660;</span></button>
+            <ul class="panel">
+                <li><a href="#" onclick="mostrarProductos('perro')">Perro</a></li>
+                <li><a href="#" onclick="mostrarProductos('gato')">Gato</a></li>
+            </ul>
+        </li>
+
+        <!-- Enfermedades -->
+        <li>
+            <button class="accordion-btn" onclick="togglePanel(this)">Enfermedades <span class="arrow">&#9660;</span></button>
+            <ul class="panel">
+                <li><a href="#" onclick="ocultarProductos()">Ojos Llorosos</a></li>
+                <li><a href="#" onclick="ocultarProductos()">Problemas del Corazón</a></li>
+                <li><a href="#" onclick="ocultarProductos()">Problemas Estomacales</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- Contenedor de productos solo para 'Perro' -->
+    <div id="productos-perro" class="productos-relacionados" style="display: none;"></div>
+</div>
+    
+	 <!-- ========== HEADER ========== -->
+    <header> 
+    <div class="nav container">
+        <h2>Tienda</h2>
+        <i class='bx bx-shopping-bag' id="cart-icon"></i> <!-- Icono para abrir el carrito -->
+        
+        <!-- ========== Carrito ========== -->
+        <div class="cart" id="cart">
+            <span class="close" id="close-cart">&times;</span> <!-- Botón de cierre -->
+            
+            <h2 class="cart-title">Tu Carrito</h2>
+            
+            
+            <!-- ========== Contenido del Carrito ========== -->
+
+<!-- Total -->
+<div class="total">
+    <div class="total-title">Total</div>
+    <div class="total-price">$0</div> <!-- Comienza en $0 -->
+</div>
+
+<!-- Botón de compra -->
+<button type="button" class="btn-buy" onclick="window.location.href='checkout.html'">Compra Ahora</button>
+    </div> 
+</div>
+</header>
+
+    <!-- ========== SECCIÓN TIENDA ========== -->
+
+    <section class="shop-container">
+        <h2 class="section-title">Nuestros Productos</h2>
+
+        <div class="shop-content">
+            <!-- Producto 1 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/medicina/producto1.png" alt="Producto" class="product-img">
+                <h2 class="product-title">Nutra Lub Vet Humectante Ocular y Antioxidante, 10 ml</h2>
+                <span class="price">$599</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			<!-- Producto 2 -->
+			<div class="product-box">
+                <img src="../sitio/Imagenes/medicina/producto2.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Hill's Prescription Diet h/d, Cuidado del corazón, Alimento para Perro 7.9 kg</h2>
+                <span class="price">$2100</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			 <!-- Producto 3 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/medicina/producto3.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Royal Canin Alimento Seco Gastrointestinal Bajo en Grasa para Perro Adulto, 13 kg</h2>
+                <span class="price">$2500</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			 <!-- Producto 4 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/medicina/producto4.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Simparica Masticable Desparasitante Externo para Perro 5-10 kg, 3 tabletas</h2>
+                <span class="price">$750</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			 <!-- Producto 5 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/medicina/producto5.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Advantage Multi Pipeta Antiparasitaria Interna y Externa para Gato, 4 a 8 kg</h2>
+                <span class="price">$410</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+			
+			
+			<!-- Producto 6 -->
+            <div class="product-box">
+                <img src="../sitio/Imagenes/medicina/producto8.jpg" alt="Producto" class="product-img">
+                <h2 class="product-title">Hill's Prescription Diet j/d Alimento Seco para Movilidad para Perro Adulto, 12.5 kg</h2>
+                <span class="price">$3200</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+				
+            </div>
+		</div>
+			</section>
+		
+	</section>
+
+<script type="text/javascript" src="Js/scrip_medicina.js"></script>
+</body>
+</html>

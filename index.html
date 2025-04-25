@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Responsivo</title>
+    <script type="text/javascript" src="Js/scrip.js" defer></script> <!-- Asegúrate de usar defer para cargar el script después de cargar el HTML -->
+    <link href="Style/Style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header id="navbar">
+        <div class="logo">
+            <img src="Imagenes/logo.png" alt="Logo de la Empresa">
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicio">Servicio</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="hamburguesa" onclick="toggleMenu()">☰</div>
+        </nav>
+    </header>
+
+   <section id="inicio">
+    <video id="videoBienvenida" src="Imagenes/Bienvenida.mp4" autoplay loop controls playsinline></video>
+</section>
+
+    <section id="somos">
+        <div class="contenido">
+            <div class="texto">
+                <h1>¿Quiénes somos?</h1>
+                <p>
+                    Nuestro trabajo nace del amor a los animales, ofreciendo servicios de alta calidad para tu mejor amigo.
+                    El bienestar de nuestros pacientes es nuestra prioridad, y por ello contamos con trabajadores altamente capacitados.
+                </p>
+                <p>
+                    Nuestra misión es servir y brindar un servicio de alta calidad para que los animales tengan una vida digna.
+                    Contamos con una sucursal que ofrece los servicios integrales de una Clínica Veterinaria en Guadalajara y Zapopan,
+                    incluyendo consultas generales, especialidades, cirugía y medicina preventiva.
+                </p>
+            </div>
+            <div class="imagen">
+               <div align="right">  <img src="Imagenes/somos.png" alt="Veterinaria"> </div>
+            </div>
+        </div>
+    </section>
+	
+ <section id="carrusel"> 
+    <div class="carousel-container">
+		<h1> Nuestro Equipo </h1>
+        <div class="carousel">
+            <div class="carousel-item" onclick="showDetails(0)">
+                <img src="Imagenes/juan_perez.png" alt="Veterinario 1" class="medico-img">
+                <div class="medico-info">
+                    <p class="profession">Veterinario</p>
+                    <hr>
+                    <p class="name">Dr. Juan Pérez</p>
+                </div>
+            </div>
+            <div class="carousel-item" onclick="showDetails(1)">
+                <img src="Imagenes/Ana.png" alt="Veterinario 2" class="medico-img">
+                <div class="medico-info">
+                    <p class="profession">Veterinario</p>
+                    <hr>
+                    <p class="name">Dra. Ana López</p>
+                </div>
+            </div>
+            <div class="carousel-item" onclick="showDetails(2)">
+                <img src="Imagenes/Luis.png" alt="Veterinario 3" class="medico-img">
+                <div class="medico-info">
+                    <p class="profession">Veterinario</p>
+                    <hr>
+                    <p class="name">Dr. Luis Martínez</p>
+                </div>
+            </div>
+            <div class="carousel-item" onclick="showDetails(3)">
+                <img src="Imagenes/Carmen.png" alt="Veterinario 4" class="medico-img">
+                <div class="medico-info">
+                    <p class="profession">Veterinario</p>
+                    <hr>
+                    <p class="name">Dra. Carmen Rodríguez</p>
+                </div>
+            </div>
+            <div class="carousel-item" onclick="showDetails(4)">
+                <img src="Imagenes/Mario.png" alt="Veterinario 5" class="medico-img">
+                <div class="medico-info">
+                    <p class="profession">Veterinario</p>
+                    <hr>
+                    <p class="name">Dr. Mario Gómez</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-buttons">
+            <button class="prev" onclick="moveSlide(-1)">⟨</button>
+            <button class="next" onclick="moveSlide(1)">⟩</button>
+        </div>
+    </div>
+
+    <!-- Ventana Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <div id="modal-details">
+              
+            </div>
+        </div>
+    </div>
+</section>
+	
+    <section id="servicio">
+		
+		<h1> Nuestro Servicios</h1>
+      <main class="vet-container">
+    <div class="vet-card" data-url="vacuna.html">
+        <div class="vet-icon"> <img src="Imagenes/Icono_servicios/jeringa_Mesa de trabajo 1.svg" alt="Icono de medicina"/></div>
+        <div class="vet-content">
+            <h2>Vacunas</h2>
+            <p>Protege a tus mascotas con nuestro plan de vacunación.</p>
+        </div>
+    </div>
+
+    <div class="vet-card" data-url="medicina.html">
+        <div class="vet-icon"> <img src="Imagenes/Icono_servicios/medicina_Mesa de trabajo 1.svg" alt="Icono de medicina"/></div>
+        <div class="vet-content">
+            <h2>Medicina</h2>
+            <p>Encuentra los mejores tratamientos para tus mascotas.</p>
+        </div>
+    </div>
+
+    <div class="vet-card" data-url="cirugia.html">
+        <div class="vet-icon"> <img src="Imagenes/Icono_servicios/cirugia_Mesa de trabajo 1.svg" alt="Icono de medicina"/></div>
+        <div class="vet-content">
+            <h2>Cirugía</h2>
+            <p>Procedimientos quirúrgicos seguros y especializados.</p>
+        </div>
+    </div>
+
+    <div class="vet-card" data-url="articulos.html">
+        <div class="vet-icon"> <img src="Imagenes/Icono_servicios/carrito_Mesa de trabajo 1.svg" alt="Icono de medicina"/></div>
+        <div class="vet-content">
+            <h2>Artículos</h2>
+            <p>Accesorios y productos para el bienestar de tu mascota.</p>
+        </div>
+    </div>
+</main>
+    </section>
+
+    <section id="ubicacion" class="ubicacion">
+            <div class="croquis">
+                <h2>Nuestra Ubicación</h2>
+                <!-- Mapa de Google Maps con la dirección proporcionada -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.514526766841!2d-103.43169392497507!3d20.630476380894776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428aec909da5bbd%3A0xe7f89661f0e7f789!2sAv.%20Enrique%20Ladr%C3%B3n%20de%20Guevara%202894%2C%20Paseos%20del%20Sol%2C%2045079%20Zapopan%2C%20Jal.!5e0!3m2!1ses!2smx!4v1710430208955!5m2!1ses!2smx"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+        </section>
+
+   <section id="contacto">
+    <h1>Contacto</h1>
+    <p>Comunícate con nosotros.</p>
+
+    <!-- Redes Sociales -->
+    <div class="redes-sociales">
+        <a href="https://facebook.com" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="mailto:correo@gmail.com">
+            <i class="fas fa-envelope"></i> Gmail
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
+    <!-- Sección de Contacto -->
+    <div class="formulario-container">
+        <!-- Formulario -->
+        <div class="formulario">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" placeholder="correo@example.com">
+
+            <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" placeholder="Ej: +52 1234567890">
+
+            <label for="comentario">Comentario</label>
+            <textarea id="comentario" rows="4" placeholder="Escribe tu mensaje"></textarea>
+
+            <button onclick="enviarFormulario()">Enviar</button>
+        </div>
+
+        <!-- Imagen -->
+        <div class="imagen-contacto">
+        <img src="Imagenes/contacto.png" alt=""/> </div>
+    </div>
+</section>
+	
+</body>
+</html>
+
