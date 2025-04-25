@@ -1,3 +1,4 @@
+// MEN脷
 function toggleMenu() {
     document.querySelector(".menu").classList.toggle("active");
 }
@@ -9,40 +10,39 @@ document.querySelectorAll(".menu a").forEach(link => {
     });
 });
 
-
-
 // VENTANAS VETERINARIO 
+// Datos de los veterinarios
 const veterinarians = [
     {
-        name: "Dr. Juan P茅rez",
+        name: "Dr. Juan Perez",
         profession: "Veterinario",
         image: "Imagenes/juan_perez.png",
-        skills: "Cirug铆a, Diagn贸stico, Emergencias",
+        skills: "Cirugia, Diagnostico, Emergencias",
         stars: 4
     },
     {
-        name: "Dra. Ana L贸pez",
+        name: "Dra. Ana Lopez",
         profession: "Veterinaria",
         image: "Imagenes/Ana.png",
-        skills: "Vacunaci贸n, Nutrici贸n, Cuidado Preventivo",
+        skills: "Vacunacion, Nutricion, Cuidado Preventivo",
         stars: 5
     },
     {
-        name: "Dr. Luis Mart铆nez",
+        name: "Dr. Luis Martinez",
         profession: "Veterinario",
         image: "Imagenes/Luis.png",
-        skills: "Dermatolog铆a, Oncol贸gico, Emergencias",
+        skills: "Dermatologia, Oncologico, Emergencias",
         stars: 3
     },
     {
-        name: "Dra. Carmen Rodr铆guez",
+        name: "Dra. Carmen Rodriguez",
         profession: "Veterinaria",
         image: "Imagenes/Carmen.png",
-        skills: "Cirug铆a General, Geriatr铆a",
+        skills: "Cirugia General, Geriatria",
         stars: 4
     },
     {
-        name: "Dr. Mario G贸mez",
+        name: "Dr. Mario Gomez",
         profession: "Veterinario",
         image: "Imagenes/Mario.png",
         skills: "Ortopedia, Urgencias",
@@ -50,11 +50,45 @@ const veterinarians = [
     }
 ];
 
+function showDetails(index) {
+    const vet = veterinarians[index];
+    const modal = document.getElementById("vet-modal");
+    const modalDetails = document.getElementById("vet-modal-details");
+
+    let stars = "";
+    for (let i = 0; i < vet.stars; i++) {
+        stars += "馃惗";
+    }
+
+    modalDetails.innerHTML = `
+        <img src="${vet.image}" alt="${vet.name}">
+        <h3>${vet.name}</h3>
+        <p style="text-align:center;">${stars}</p>
+        <hr>
+        <p><strong>Profesion:</strong> ${vet.profession}</p>
+        <p><strong>Habilidades:</strong> ${vet.skills}</p>
+    `;
+    
+    modal.classList.add("active");
+}
+
+function closeModal() {
+    document.getElementById("vet-modal").classList.remove("active");
+}
+
+// Funci贸n para cerrar la ventana emergente
+function closeModal() {
+    const modal = document.getElementById("vet-modal");
+    modal.classList.remove("active");
+}
+
+let currentIndex = 0;
+
 function moveSlide(step) {
     const maxIndex = veterinarians.length - 1;
     
     if ((currentIndex === 0 && step < 0) || (currentIndex === maxIndex && step > 0)) {
-        return; // Detiene el movimiento cuando llega al inicio o al final
+        return;
     }
     
     currentIndex += step;
@@ -63,15 +97,17 @@ function moveSlide(step) {
 
 function updateCarousel() {
     const carousel = document.querySelector('.carousel');
-    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (carousel) {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 }
 
 function showDetails(index) {
     const modal = document.getElementById('modal');
     const modalDetails = document.getElementById('modal-details');
     
-      const vet = veterinarians[index];
-    const starFaces = '馃惗'.repeat(vet.stars);
+    const vet = veterinarians[index];
+    const starFaces = '?'.repeat(vet.stars);
     
     modalDetails.innerHTML = `
         <img src="${vet.image}" alt="${vet.name}" class="medico-img">
@@ -91,25 +127,27 @@ function closeModal() {
     const modal = document.getElementById('modal');
     modal.style.display = "none";
 }
- //Servicios
+
+// Servicios
 document.addEventListener("DOMContentLoaded", () => {
     const vetCards = document.querySelectorAll(".vet-card");
 
     vetCards.forEach(card => {
         card.addEventListener("click", () => {
             const url = card.getAttribute("data-url");
-            window.location.href = url;
+            if (url) {
+                window.location.href = url;
+            }
         });
     });
 });
 
-//Ubicacion
-
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Secci髇 de ubicaci髇 cargada correctamente.");
+// Ubicaci贸n
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Secci贸n de ubicaci贸n cargada correctamente.");
 });
 
-//Contacto
+// Contacto
 function enviarFormulario() {
     let nombre = document.getElementById("nombre").value;
     let correo = document.getElementById("correo").value;
@@ -119,7 +157,7 @@ function enviarFormulario() {
     if (nombre && correo && telefono && comentario) {
         console.log("Nombre:", nombre);
         console.log("Correo:", correo);
-        console.log("Tel閒ono:", telefono);
+        console.log("Tel茅fono:", telefono);
         console.log("Comentario:", comentario);
         alert("Formulario enviado correctamente.");
     } else {

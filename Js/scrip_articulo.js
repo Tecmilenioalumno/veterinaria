@@ -3,25 +3,15 @@ function toggleMenu() {
     document.querySelector(".menu").classList.toggle("active");
 }
 
-// Cierra el menú al hacer clic en un enlace
 document.querySelectorAll(".menu a").forEach(link => {
     link.addEventListener("click", () => {
         document.querySelector(".menu").classList.remove("active");
     });
 });
 
-// Cambia color del menú al hacer scroll
-window.addEventListener("scroll", () => {
-    const navbar = document.getElementById("navbar");
-   
-});
-
-
 // ======= ACORDEÓN =======
 function togglePanel(button) {
-    const allPanels = document.querySelectorAll('.panel');
     const allButtons = document.querySelectorAll('.accordion-btn');
-
     allButtons.forEach(btn => {
         if (btn !== button) {
             btn.classList.remove('active');
@@ -39,16 +29,12 @@ function togglePanel(button) {
 const cartIcon = document.getElementById('cart-icon');
 const cart = document.getElementById('cart');
 const closeCart = document.getElementById('close-cart');
-const buyButton = document.getElementsByClassName('btn-buy')[0];
+const buyButton = document.querySelector('.btn-buy');
 
-cartIcon.addEventListener('click', () => cart.classList.add('active'));
-closeCart.addEventListener('click', () => cart.classList.remove('active'));
+cartIcon?.addEventListener('click', () => cart.classList.add('active'));
+closeCart?.addEventListener('click', () => cart.classList.remove('active'));
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ready);
-} else {
-    ready();
-}
+document.addEventListener('DOMContentLoaded', ready);
 
 function ready() {
     updateEventListeners();
@@ -67,10 +53,10 @@ function quantityChanged(event) {
 
 function addCartClicked(event) {
     const button = event.target;
-    const shopProducts = button.parentElement;
-    const title = shopProducts.getElementsByClassName('product-title')[0].innerText;
-    const price = shopProducts.getElementsByClassName('price')[0].innerText;
-    const productImg = shopProducts.getElementsByClassName('product-img')[0].src;
+    const shopProducts = button.closest('.product-box');
+    const title = shopProducts.querySelector('.product-title').innerText;
+    const price = shopProducts.querySelector('.price').innerText;
+    const productImg = shopProducts.querySelector('.product-img').src;
 
     addProductToCart(title, price, productImg);
     updateTotal();
@@ -80,8 +66,8 @@ function addProductToCart(title, price, productImg) {
     const cartContent = document.querySelector(".cart-content") || createCartContent();
     const cartItemsNames = cartContent.querySelectorAll(".cart-product-title");
 
-    for (let i = 0; i < cartItemsNames.length; i++) {
-        if (cartItemsNames[i].innerText.trim() === title.trim()) {
+    for (let name of cartItemsNames) {
+        if (name.innerText.trim() === title.trim()) {
             alert("Ya tienes este producto en el carrito.");
             return;
         }
@@ -89,7 +75,6 @@ function addProductToCart(title, price, productImg) {
 
     const cartShopBox = document.createElement("div");
     cartShopBox.classList.add("cart-box");
-
     cartShopBox.innerHTML = `
         <img src="${productImg}" class="cart-img">
         <div class="detail-box">
@@ -99,13 +84,10 @@ function addProductToCart(title, price, productImg) {
         </div>
         <i class='bx bxs-trash-alt cart-remove'></i>
     `;
-
     cartContent.appendChild(cartShopBox);
 
     cartShopBox.querySelector('.cart-remove').addEventListener('click', removeCartItem);
     cartShopBox.querySelector('.cart-quantity').addEventListener('input', quantityChanged);
-
-    updateTotal();
 }
 
 function createCartContent() {
@@ -116,12 +98,12 @@ function createCartContent() {
 }
 
 function updateTotal() {
-    const cartBoxes = document.getElementsByClassName('cart-box');
+    const cartBoxes = document.querySelectorAll('.cart-box');
     let total = 0;
 
-    Array.from(cartBoxes).forEach(cartBox => {
-        const price = parseFloat(cartBox.querySelector('.cart-price').innerText.replace('$', '').trim());
-        const quantity = parseInt(cartBox.querySelector('.cart-quantity').value);
+    cartBoxes.forEach(box => {
+        const price = parseFloat(box.querySelector('.cart-price').innerText.replace('$', '').trim());
+        const quantity = parseInt(box.querySelector('.cart-quantity').value);
         total += price * quantity;
     });
 
@@ -144,8 +126,10 @@ function updateEventListeners() {
         btn.addEventListener("click", addCartClicked);
     });
 
-    buyButton.removeEventListener('click', buyButtonClicked);
-    buyButton.addEventListener('click', buyButtonClicked);
+    if (buyButton) {
+        buyButton.removeEventListener('click', buyButtonClicked);
+        buyButton.addEventListener('click', buyButtonClicked);
+    }
 }
 
 function buyButtonClicked() {
@@ -164,18 +148,18 @@ function mostrarProductos(categoria) {
 
         const productoslimpieza = [
             {
-                img: '../sitio/Imagenes/Articulos/Bañito.jpg',
-                titulo: 'Sophresh Leak Guard Tapetes Ultra Absorbentes para Perro, 100 Piezas',
+                img: 'Imagenes/Articulos/Bañito.jpg',
+                titulo: 'Sophresh Tapetes Ultra Absorbentes - 100 Piezas',
                 precio: '$750'
             },
             {
-                img: '../sitio/Imagenes/medicina/producto3.jpg',
-                titulo: 'ROYAL CANIN PRESCRIPCIÓN ALIMENTO SECO GASTROINTESTINAL BAJO EN GRASA PARA PERRO ADULTO, 13 KG',
+                img: 'Imagenes/medicina/producto3.jpg',
+                titulo: 'Royal Canin Gastrointestinal Bajo en Grasa - 13 KG',
                 precio: '$2500'
             },
             {
-                img: '../sitio/Imagenes/medicina/producto4.jpg',
-                titulo: 'SIMPARICA MASTICABLE DESPARASITANTE EXTERNO PARA PERRO 5-10 KG, 3 TABLETAS',
+                img: 'Imagenes/medicina/producto4.jpg',
+                titulo: 'Simparica Masticable Desparasitante - 3 Tabletas',
                 precio: '$750'
             },
         ];
@@ -184,7 +168,7 @@ function mostrarProductos(categoria) {
             const div = document.createElement('div');
             div.classList.add('product-box');
             div.innerHTML = `
-                <img src="${producto.img}" alt="Producto" class="product-img">
+                <img src="${producto.img}" class="product-img" alt="Producto">
                 <h2 class="product-title">${producto.titulo}</h2>
                 <span class="price">${producto.precio}</span>
                 <i class='bx bx-shopping-bag add-cart'></i>
@@ -200,19 +184,19 @@ function mostrarProductos(categoria) {
         contenedor.innerHTML = '';
         contenedor.style.display = 'block';
 
-        const productosGato = [
+        const productosCama = [
             {
-                img: '../sitio/Imagenes/medicina/producto5.jpg',
-                titulo: 'Advantage Multi Pipeta Antiparasitaria Interna y Externa para Gato, 4 a 8 kg',
+                img: 'Imagenes/medicina/producto5.jpg',
+                titulo: 'Advantage Multi Pipeta para Gato 4-8 kg',
                 precio: '$410'
             }
         ];
 
-        productosGato.forEach(producto => {
+        productosCama.forEach(producto => {
             const div = document.createElement('div');
             div.classList.add('product-box');
             div.innerHTML = `
-                <img src="${producto.img}" alt="Producto" class="product-img">
+                <img src="${producto.img}" class="product-img" alt="Producto">
                 <h2 class="product-title">${producto.titulo}</h2>
                 <span class="price">${producto.precio}</span>
                 <i class='bx bx-shopping-bag add-cart'></i>
@@ -225,14 +209,16 @@ function mostrarProductos(categoria) {
 }
 
 function ocultarProductos() {
-    const contenedorPerro = document.getElementById('productos-limpieza');
-    const contenedorGato = document.getElementById('productos-cama');
-    if (contenedorPerro) {
-        contenedorPerro.innerHTML = '';
-        contenedorPerro.style.display = 'none';
+    const contenedorLimpieza = document.getElementById('productos-limpieza');
+    const contenedorCama = document.getElementById('productos-cama');
+
+    if (contenedorLimpieza) {
+        contenedorLimpieza.innerHTML = '';
+        contenedorLimpieza.style.display = 'none';
     }
-    if (contenedorGato) {
-        contenedorGato.innerHTML = '';
-        contenedorGato.style.display = 'none';
+
+    if (contenedorCama) {
+        contenedorCama.innerHTML = '';
+        contenedorCama.style.display = 'none';
     }
 }

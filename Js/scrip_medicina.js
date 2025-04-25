@@ -164,17 +164,17 @@ function mostrarProductos(categoria) {
 
         const productosPerro = [
             {
-                img: '../sitio/Imagenes/medicina/producto2.jpg',
+                img: 'Imagenes/Medicina/producto2.jpg',
                 titulo: 'HILL´S PRESCRIPTION DIET H/D, CUIDADO DEL CORAZÓN, ALIMENTO PARA PERRO 7.9 KG',
                 precio: '$2100'
             },
             {
-                img: '../sitio/Imagenes/medicina/producto3.jpg',
+                img: 'Imagenes/Medicina/producto3.jpg',
                 titulo: 'ROYAL CANIN PRESCRIPCIÓN ALIMENTO SECO GASTROINTESTINAL BAJO EN GRASA PARA PERRO ADULTO, 13 KG',
                 precio: '$2500'
             },
             {
-                img: '../sitio/Imagenes/medicina/producto4.jpg',
+                img: 'Imagenes/medicina/producto4.jpg',
                 titulo: 'SIMPARICA MASTICABLE DESPARASITANTE EXTERNO PARA PERRO 5-10 KG, 3 TABLETAS',
                 precio: '$750'
             },
@@ -202,7 +202,7 @@ function mostrarProductos(categoria) {
 
         const productosGato = [
             {
-                img: '../sitio/Imagenes/medicina/producto5.jpg',
+                img: 'Imagenes/medicina/producto5.jpg',
                 titulo: 'Advantage Multi Pipeta Antiparasitaria Interna y Externa para Gato, 4 a 8 kg',
                 precio: '$410'
             }
